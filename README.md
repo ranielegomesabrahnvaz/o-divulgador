@@ -22,8 +22,8 @@
 ## 🌐 Acesse a Vitrine
 
 Acompanhe nossa página oficial e confira os produtos em destaque:
-- 🔗 **Website:** [Acessar O Divulgador](https://seu-usuario.github.io/o-divulgador/) *(Lembre-se de trocar "seu-usuario" pelo seu nome no GitHub)*
-- 👍 **Facebook:** [Página Oficial no Facebook](https://facebook.com/)
+- 🔗 **Website:** [Acessar O Divulgador](https://ranielegomesabrahnvaz.github.io/o-divulgador/)
+- 👍 **Facebook:** [Página Oficial no Facebook](https://www.facebook.com/share/1CT4Xuqnnr/)
 
 ---
 
