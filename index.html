@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Divulgador | Melhores Produtos e Serviços</title>
+    <!-- Fonte moderna do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de Cores e Variáveis */
+        :root {
+            --primary-bg: #0F172A; /* Azul Marinho Escuro */
+            --card-bg: #1E293B;    /* Grafite Elegante */
+            --accent: #F97316;     /* Laranja Vibrante */
+            --accent-hover: #ea580c;
+            --text-light: #F8FAFC; /* Branco Gelo */
+            --text-muted: #94A3B8; /* Cinza Suave */
+        }
+
+        /* Resets básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background-color: var(--accent);
+            color: var(--primary-bg);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .contact-btn {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Seção Hero (Título Principal) */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filtros de Categoria */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 20px 5%;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-muted);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* Grade de Produtos */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
+            margin-bottom: 80px;
+        }
+
+        /* Card do Produto */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: var(--accent);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #334155;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-category {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .card-btn {
+            background-color: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+
+        .card-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--card-bg);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Classe para esconder itens no filtro */
+        .hide {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">D</div>
+            O Divulgador
+        </a>
+        <nav>
+            <a href="mailto:odivulgador.contato@gmail.com" class="contact-btn">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <!-- TÍTULO PRINCIPAL -->
+    <section class="hero">
+        <h1>As melhores <span>recomendações</span> em um só lugar</h1>
+        <p>Curadoria diária de produtos indispensáveis, cursos transformadores e ferramentas para facilitar a sua vida.</p>
+    </section>
+
+    <!-- FILTROS (BOTÕES) -->
+    <section>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="casa">Casa & Utilidades</button>
+            <button class="filter-btn" data-filter="cursos">Cursos Online</button>
+            <button class="filter-btn" data-filter="ferramentas">Sites & Ferramentas</button>
+        </div>
+
+        <!-- LISTA DE PRODUTOS (VITRINE) -->
+        <div class="grid" id="product-grid">
+            
+            <!-- PRODUTO 1 (Casa) -->
+            <div class="card" data-category="casa">
+                <img src="https://images.unsplash.com/photo-1589088617833-25bc77b21e1a?q=80&w=600&auto=format&fit=crop" alt="Produto Casa" class="card-img">
+                <div class="card-content">
+                    <span class="card-category">Casa & Utilidades</span>
+                    <h3 class="card-title">Robô Aspirador Inteligente</h3>
+                    <p class="card-desc">Mantenha sua casa sempre limpa sem esforço com este aspirador que mapeia ambientes e funciona pela Alexa.</p>
+                    <a href="#" class="card-btn">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 2 (Cursos) -->
+            <div class="card" data-category="cursos">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop" alt="Curso Online" class="card-img">
+                <div class="card-content">
+                    <span class="card-category">Cursos Online</span>
+                    <h3 class="card-title">Formação em Marketing Digital</h3>
+                    <p class="card-desc">Aprenda estratégias de vendas, tráfego pago e alcance milhares de clientes na internet do zero.</p>
+                    <a href="#" class="card-btn">Acessar Curso</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 3 (Ferramentas) -->
+            <div class="card" data-category="ferramentas">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Ferramentas Digitais" class="card-img">
+                <div class="card-content">
+                    <span class="card-category">Sites & Ferramentas</span>
+                    <h3 class="card-title">Plataforma de Automação Web</h3>
+                    <p class="card-desc">Ganhe tempo no seu negócio conectando aplicativos e automatizando mensagens e e-mails.</p>
+                    <a href="#" class="card-btn">Conhecer Ferramenta</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 4 (Casa) -->
+            <div class="card" data-category="casa">
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=600&auto=format&fit=crop" alt="Smart Home" class="card-img">
+                <div class="card-content">
+                    <span class="card-category">Casa & Utilidades</span>
+                    <h3 class="card-title">Kit Smart Home (Alexa)</h3>
+                    <p class="card-desc">Controle lâmpadas e tomadas por comando de voz. Ideal para quem busca praticidade e tecnologia.</p>
+                    <a href="#" class="card-btn">Ver Oferta</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 O Divulgador. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE FILTRAGEM (JAVASCRIPT) -->
+    <script>
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 1. Tira a classe 'active' de todos os botões
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // 2. Adiciona a classe 'active' no botão clicado
+                button.classList.add('active');
+                
+                // 3. Pega qual é a categoria do botão
+                const filterValue = button.getAttribute('data-filter');
+                
+                // 4. Mostra/Esconde os cards
+                cards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
