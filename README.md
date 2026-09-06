@@ -30,4 +30,4 @@ Acompanhe nossa página oficial e confira os produtos em destaque:
 ## 📬 Contato e Parcerias
 
 Deseja divulgar seu produto ou serviço conosco?
-- 📩 **E-mail:** contato@odivulgador.com
+- 📩 **E-mail:** suporteodivulgador@gmail.com
