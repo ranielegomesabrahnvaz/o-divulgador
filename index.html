@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Divulgador | Melhores Produtos e Serviços</title>
-    <!-- Fonte moderna do Google Fonts -->
+    <title>O Divulgador | Melhores Ofertas Amazon</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Paleta de Cores e Variáveis */
         :root {
-            --primary-bg: #0F172A; /* Azul Marinho Escuro */
-            --card-bg: #1E293B;    /* Grafite Elegante */
-            --accent: #F97316;     /* Laranja Vibrante */
+            --primary-bg: #0F172A;
+            --card-bg: #1E293B;
+            --accent: #F97316;
             --accent-hover: #ea580c;
-            --text-light: #F8FAFC; /* Branco Gelo */
-            --text-muted: #94A3B8; /* Cinza Suave */
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+            --amazon-yellow: #FF9900;
         }
 
-        /* Resets básicos */
         * {
             margin: 0;
             padding: 0;
@@ -31,7 +29,6 @@
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
         header {
             background-color: var(--card-bg);
             padding: 20px 5%;
@@ -54,17 +51,12 @@
             gap: 12px;
         }
 
-        .logo-icon {
-            background-color: var(--accent);
-            color: var(--primary-bg);
+        /* Remova ou substitua o .logo-icon por este código abaixo */
+        .logo-img {
             width: 45px;
             height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             border-radius: 50%;
-            font-size: 24px;
-            font-weight: 900;
+            object-fit: cover;
         }
 
         .contact-btn {
@@ -83,16 +75,14 @@
             color: var(--accent);
         }
 
-        /* Seção Hero (Título Principal) */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px 20px;
         }
 
         .hero h1 {
-            font-size: 38px;
-            margin-bottom: 15px;
-            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 10px;
         }
 
         .hero h1 span {
@@ -101,29 +91,45 @@
 
         .hero p {
             color: var(--text-muted);
-            font-size: 18px;
+            font-size: 16px;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Filtros de Categoria */
+        /* NAVEGAÇÃO DE CATEGORIAS */
+        .categories-section {
+            padding: 20px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-align: left;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+        }
+
         .filters {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 20px 5%;
+            justify-content: flex-start;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
             margin-bottom: 30px;
+            scrollbar-width: thin;
         }
 
         .filter-btn {
-            background-color: transparent;
+            background-color: var(--card-bg);
             color: var(--text-light);
-            border: 2px solid var(--text-muted);
-            padding: 10px 24px;
-            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 22px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
+            white-space: nowrap;
             transition: all 0.3s ease;
         }
 
@@ -133,16 +139,15 @@
             color: #fff;
         }
 
-        /* Grade de Produtos */
+        /* GRADE DE PRODUTOS */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
             padding: 0 5%;
             margin-bottom: 80px;
         }
 
-        /* Card do Produto */
         .card {
             background-color: var(--card-bg);
             border-radius: 12px;
@@ -151,78 +156,117 @@
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .badge-destaque {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            z-index: 2;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
             border-color: var(--accent);
         }
 
-        .card-img {
+        .card-img-container {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background-color: #334155;
-            border-bottom: 3px solid var(--accent);
+            height: 200px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .card-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .card-content {
-            padding: 24px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .card-category {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--accent);
             text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
 
         .card-title {
-            font-size: 20px;
-            margin-bottom: 12px;
+            font-size: 16px;
+            margin-bottom: 10px;
             line-height: 1.3;
         }
 
         .card-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             flex-grow: 1;
+        }
+
+        .card-price-container {
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.03);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .price-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--amazon-yellow);
         }
 
         .card-btn {
             background-color: var(--accent);
             color: #fff;
             text-align: center;
-            padding: 14px;
+            padding: 12px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             transition: background 0.3s;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .card-btn:hover {
             background-color: var(--accent-hover);
         }
 
-        /* Rodapé */
         footer {
             background-color: var(--card-bg);
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        /* Classe para esconder itens no filtro */
         .hide {
             display: none !important;
         }
@@ -230,121 +274,454 @@
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
     <header>
         <a href="#" class="logo">
-            <div class="logo-icon">D</div>
+            <img src="logo.jpeg" alt="O Divulgador" class="logo-img">
             O Divulgador
         </a>
         <nav>
-            <a href="mailto:odivulgador.contato@gmail.com" class="contact-btn">Fale Conosco</a>
+            <a href="https://wa.me/5553999589895?text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="contact-btn">Fale Conosco</a>
         </nav>
     </header>
 
-    <!-- TÍTULO PRINCIPAL -->
     <section class="hero">
-        <h1>As melhores <span>recomendações</span> em um só lugar</h1>
-        <p>Curadoria diária de produtos indispensáveis, cursos transformadores e ferramentas para facilitar a sua vida.</p>
+        <h1>Vitrine de Ofertas <span>Amazon</span></h1>
+        <p>Produtos selecionados com entrega rápida e compra 100% segura.</p>
     </section>
 
-    <!-- FILTROS (BOTÕES) -->
-    <section>
+    <!-- BARRA DE CATEGORIAS -->
+    <section class="categories-section">
         <div class="filters">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="casa">Casa & Utilidades</button>
-            <button class="filter-btn" data-filter="cursos">Cursos Online</button>
-            <button class="filter-btn" data-filter="ferramentas">Sites & Ferramentas</button>
+            <button class="filter-btn active" data-filter="all">🔥 Todos os Destaques</button>
+            <button class="filter-btn" data-filter="tecnologia">📱 Tecnologia</button>
+            <button class="filter-btn" data-filter="casa">🏠 Casa Inteligente</button>
+            <button class="filter-btn" data-filter="cozinha">🍳 Cozinha & Eletro</button>
+            <button class="filter-btn" data-filter="audio">🎧 Áudio</button>
+            <button class="filter-btn" data-filter="livros">📖 Livros</button>
+            <button class="filter-btn" data-filter="pets">🐾 Pets</button>
         </div>
 
-        <!-- LISTA DE PRODUTOS (VITRINE) -->
-        <div class="grid" id="product-grid">
-            
-            <!-- PRODUTO 1 (Amazon - Exemplo de Smartband) -->
-            <div class="card" data-category="casa" data-product-id="B0C9R8GXYZ">
-                <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=600&auto=format&fit=crop" alt="Smartband Xiaomi" class="card-img">
-                <div class="card-content">
-                    <span class="card-category">Tecnologia & Casa</span>
-                    <h3 class="card-title">Xiaomi Smart Band 8</h3>
-                    <p class="card-desc">Monitoramento de saúde, mais de 150 modos de treino e bateria que dura até 16 dias.</p>
-                    
-                    <!-- ÁREA DO PREÇO -->
-                    <div class="card-price-container">
-                        <span class="price-label">Por apenas:</span>
-                        <span class="product-price" id="price-B0C9R8GXYZ">R$ 219,90</span>
-                    </div>
-            
-                    <!-- LINK DE AFILIADO -->
-                    <a href="https://amzn.to/TEU_LINK_AQUI" target="_blank" class="card-btn">Ver Oferta na Amazon</a>
-                </div>
-            </div>
-
-            <!-- PRODUTO 2 (Cursos) -->
-            <div class="card" data-category="cursos">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop" alt="Curso Online" class="card-img">
-                <div class="card-content">
-                    <span class="card-category">Cursos Online</span>
-                    <h3 class="card-title">Formação em Marketing Digital</h3>
-                    <p class="card-desc">Aprenda estratégias de vendas, tráfego pago e alcance milhares de clientes na internet do zero.</p>
-                    <a href="#" class="card-btn">Acessar Curso</a>
-                </div>
-            </div>
-
-            <!-- PRODUTO 3 (Ferramentas) -->
-            <div class="card" data-category="ferramentas">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Ferramentas Digitais" class="card-img">
-                <div class="card-content">
-                    <span class="card-category">Sites & Ferramentas</span>
-                    <h3 class="card-title">Plataforma de Automação Web</h3>
-                    <p class="card-desc">Ganhe tempo no seu negócio conectando aplicativos e automatizando mensagens e e-mails.</p>
-                    <a href="#" class="card-btn">Conhecer Ferramenta</a>
-                </div>
-            </div>
-
-            <!-- PRODUTO 4 (Casa) -->
-            <div class="card" data-category="casa">
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=600&auto=format&fit=crop" alt="Smart Home" class="card-img">
-                <div class="card-content">
-                    <span class="card-category">Casa & Utilidades</span>
-                    <h3 class="card-title">Kit Smart Home (Alexa)</h3>
-                    <p class="card-desc">Controle lâmpadas e tomadas por comando de voz. Ideal para quem busca praticidade e tecnologia.</p>
-                    <a href="#" class="card-btn">Ver Oferta</a>
-                </div>
-            </div>
-
-        </div>
+        <h2 class="section-title">Produtos em Destaque</h2>
     </section>
 
-    <!-- RODAPÉ -->
+    <!-- GRADE DE PRODUTOS -->
+    <main class="grid" id="product-grid">
+
+        <!-- ========================= TECNOLOGIA ========================= -->
+
+        <!-- PRODUTO: Hisense Smart TV 4K Hi-QLED 50" Polegadas 50Q6QVV -->
+        <div class="card" data-category="tecnologia" data-featured="true">
+            <span class="badge-destaque">Mais Vendido</span>
+            <div class="card-img-container">
+                <!-- Cole a URL copiada da imagem da Amazon aqui -->
+                <img src="https://m.media-amazon.com/images/I/81ua0sYUCPL._AC_SY300_SX300_QL70_ML2_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-category">Tecnologia</span>
+                <h3 class="card-title">Hisense Smart TV 4K Hi-QLED 50" Polegadas 50Q6QVV</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                </div>
+                <a href="https://amzn.to/3W4NkgS" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Smartwatch, HUAWEI Band 10 -->
+        <div class="card" data-category="tecnologia" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/619yH8oZ2EL._AC_SY300_SX300_QL70_ML2_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Smartwatch, HUAWEI Band 10</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://amzn.to/4rM46xi" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Amazon Kindle Paperwhite 16 GB (modelo 2024) -->
+        <div class="card" data-category="tecnologia" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/712JlBgtkJL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Amazon Kindle Paperwhite 16 GB (modelo 2024)</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B09RwUVG2" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Mini Drone Com Câmara HD -->
+        <div class="card" data-category="tecnologia" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/71txNU9ZB0L._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Mini Drone Com Câmara HD</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B03VbEkMH" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- ======================= FIM TECNOLOGIA ======================= -->
+
+
+        <!-- ========================= CASA ========================= -->
+
+        <!-- PRODUTO: Interruptor Inteligente WiFi, Interruptor Smart Sem Fio Doméstico Multifuncional-->
+        <div class="card" data-category="casa" data-featured="true">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/41qb6z82irL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-category">Oferta em Destaque</span>
+                <h3 class="card-title">Interruptor Inteligente WiFi, Interruptor Smart Sem Fio Doméstico Multifuncional</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0gebxqBy" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+                <!-- PRODUTO: Lâmpada Inteligente Smart Color 10W Elgin RGB Wifi Compatível com Alexa e Google Home -->
+        <div class="card" data-category="casa" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/61i1yPAlVLL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Lâmpada Inteligente Smart Color 10W Elgin RGB Wifi Compatível com Alexa e Google Home</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B00v7xeEq" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Lilin Robô Aspirador e Passa Pano X6 Mapeamento LiDAR 6500Pa 3 em 1 Bivolt  -->
+        <div class="card" data-category="casa" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/618j9fqcOML._AC_SL1005_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Lilin Robô Aspirador e Passa Pano X6 Mapeamento LiDAR 6500Pa 3 em 1 Bivolt</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B077uLQKd" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Lixeira 12 litros grande automática com sensor inteligente de aproximação para abrir e fechar -->
+        <div class="card" data-category="casa" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/61AHIRNXBBL._SL1200_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Lixeira 12 litros grande automática com sensor inteligente de aproximação para abrir e fechar</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0caAQaXB" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+
+
+        <!-- ======================= FIM CASA ======================= -->
+
+
+        <!-- ========================= COZINHA ========================= -->
+
+        <!-- PRODUTO: Balança de Cozinha Digital 10kg Precisão 1g Função Tara, Display LCD, Múltiplas Unidades, Plataforma Antiderrapante, Design Compacto para Alimentos, Dieta, Confeitaria e Receitas Premium  -->
+        <div class="card" data-category="cozinha" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/615lDbUTdnL._SL1254_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Balança de Cozinha Digital 10kg</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0blaCGk8" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Kit 10 Potes Vidro Borossilicato 640ml Marmita Tampa Hermética Resistente  -->
+        <div class="card" data-category="cozinha" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/71iw4Cy1BmL._AC_SL1254_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Kit 10 Potes Vidro Borossilicato 640ml Marmita Tampa Hermética Resistente </h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B009sDVvu" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Chaleira Elétrica 2 Litros Inox Cor Aço 220v -->
+        <div class="card" data-category="cozinha" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/61Xw5OaL7KL._AC_SL1254_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Chaleira Elétrica 2 Litros Inox Cor Aço 220v</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0gWegk7y" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Micro-ondas Philco 20l Branco Pmo23b 220v -->
+        <div class="card" data-category="cozinha" data-featured="true">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/41XTKM4Cg4L._AC_SL1200_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-category">Oferta em Destaque</span>
+                <h3 class="card-title">Micro-ondas Philco 20l Branco Pmo23b 220v</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0dRHGFAt" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- ======================= FIM COZINHA ======================= -->
+
+
+        <!-- ========================= AUDIO ========================= -->
+
+        <!-- PRODUTO: PHILIPS, Headphone Bluetooth, TAH2300BK/00, Com Microfone, Até 55 horas de bateria, Design Over-ear, Dobrável, Preto -->
+        <div class="card" data-category="audio" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/51BmQ8K9sML._AC_SL1000_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">PHILIPS, Headphone Bluetooth, TAH2300BK/00, Com Microfone, Até 55 horas de bateria, Design Over-ear, Dobrável, Preto</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0boLjzYT" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Echo Dot (Geração mais recente) | Smart speaker com Alexa, som vibrante e potente, Wi-Fi e Bluetooth -->
+        <div class="card" data-category="audio" data-featured="true">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/61uUYOB2lvL._AC_SL1000_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <span class="card-category">Oferta em Destaque</span>
+                <h3 class="card-title">Echo Dot (Geração mais recente) | Smart speaker com Alexa, som vibrante e potente, Wi-Fi e Bluetooth</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B08kQVFyY" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: MONDIAL Caixa Amplificada Connect Partyplus, Preto, 250W RMS, Bivolt - CM-250 -->
+        <div class="card" data-category="audio" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/71L75l+z+AL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">MONDIAL Caixa Amplificada Connect Partyplus, Preto, 250W RMS, Bivolt - CM-250</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0bwXfAzi" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Alto-falante Bluetooth portátil IPX7 à prova d'água, 60W Bass -->
+        <div class="card" data-category="audio" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/61+pHP685TL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Alto-falante Bluetooth portátil IPX7 à prova d'água, 60W Bass</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B05YeczlP" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- ======================= FIM AUDIO ======================= -->
+
+
+        <!-- ========================= LIVROS ========================= -->
+
+        <!-- PRODUTO: Livro - As sete leis espirituais do sucesso-->
+        <div class="card" data-category="livros" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/91USmbhbQLL._SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">As sete leis espirituais do sucesso</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://amzn.to/4y1dFtA" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Verity -->
+        <div class="card" data-category="livros" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/91SDZ2eUj+L._SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Verity</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B06waVI4x" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Livro - Hábitos Atômicos: um Método Fácil e Comprovado de Criar Bons Hábitos e se Livrar dos Maus-->
+        <div class="card" data-category="livros" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/81eT2pjx4jL._SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Hábitos Atômicos: um Método Fácil e Comprovado de Criar Bons Hábitos e se Livrar dos Maus</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://amzn.to/4AOwl2s" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Jogo de amor para dois -->
+        <div class="card" data-category="livros" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/81ipWb06JQL._SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Jogo de amor para dois </h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0hhbgLt9" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- ======================= FIM LIVROS ======================= -->
+
+        <!-- ========================= PETS ========================= -->
+
+        <!-- PRODUTO: Alimentador Automático Pet, 4L Comedouro para Caes Fácil Comedouro Elevado para Caes, Controle de Aplicativo WiFi - Gravador de Voz -->
+        <div class="card" data-category="pets" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/51ansqiUO5L._AC_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Alimentador Automático Pet, 4L Comedouro para Caes Fácil Comedouro Elevado para Caes, Controle de Aplicativo WiFi - Gravador de Voz</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0fSw2p6X" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: Capa de Proteção Impermeável para Banco Traseiro de Carro - Forro Universal Antiderrapante para Cães e Pets  -->
+        <div class="card" data-category="pets" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/71g1cFUUIEL._AC_SL1200_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Capa de Proteção Impermeável para Banco Traseiro de Carro - Forro Universal Antiderrapante para Cães e Pets</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0bcm2Mrn" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- PRODUTO: CKit Máquina De Tosa Pets Gato Cachorro Tosador Profissional -->
+        <div class="card" data-category="pets" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/61qEmwR5VKL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Kit Máquina De Tosa Pets Gato Cachorro Tosador Profissional</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B05qeZRUt" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- Bravecto® 250mg Antipulgas e Carrapatos para Cães de 4,5 a 10kg – 1 Comprimido Mastigável -->
+        <div class="card" data-category="pets" data-featured="false">
+            <div class="card-img-container">
+                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
+                <img src="https://m.media-amazon.com/images/I/51ngRrc8nmL._AC_SL1080_.jpg" alt="Produto Amazon" class="card-img">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Bravecto® 250mg Antipulgas e Carrapatos para Cães de 4,5 a 10kg – 1 Comprimido Mastigável</h3>
+                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
+
+                <a href="https://link.amazon/B0f9w7Dnz" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+            </div>
+        </div>
+
+        <!-- ======================= FIM PETS ======================= -->
+
+    </main>
+
     <footer>
-        <p>&copy; 2026 O Divulgador. Todos os direitos reservados.</p>
+        <p>&copy; 2026 O Divulgador. Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas efetuadas.</p>
     </footer>
 
-    <!-- SCRIPT DE FILTRAGEM (JAVASCRIPT) -->
     <script>
         const buttons = document.querySelectorAll('.filter-btn');
         const cards = document.querySelectorAll('.card');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                // 1. Tira a classe 'active' de todos os botões
-                buttons.forEach(btn => btn.classList.remove('active'));
-                
-                // 2. Adiciona a classe 'active' no botão clicado
-                button.classList.add('active');
-                
-                // 3. Pega qual é a categoria do botão
-                const filterValue = button.getAttribute('data-filter');
-                
-                // 4. Mostra/Esconde os cards
-                cards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+        function filterProducts(filterValue) {
+            cards.forEach(card => {
+                const categories = card.getAttribute('data-category') ? card.getAttribute('data-category').split(' ') : [];
+
+                if (filterValue === 'all') {
+                    if (card.getAttribute('data-featured') === 'true') {
                         card.classList.remove('hide');
                     } else {
                         card.classList.add('hide');
                     }
-                });
+                } else {
+                    // Verifica se a categoria selecionada está dentro da lista de categorias do card
+                    if (categories.includes(filterValue)) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                }
+            });
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+                filterProducts(filterValue);
             });
         });
+
+        // EXECUTA O FILTRO AUTOMATICAMENTE AO CARREGAR A PÁGINA
+        filterProducts('all');
     </script>
 
 </body>
