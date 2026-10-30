@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Divulgador | Melhores Ofertas Amazon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>O Divulgador | Tudo até R$ 20,00 na Amazon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-bg: #0F172A;
@@ -31,7 +31,7 @@
 
         header {
             background-color: var(--card-bg);
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,7 +42,7 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
@@ -51,7 +51,6 @@
             gap: 12px;
         }
 
-        /* Remova ou substitua o .logo-icon por este código abaixo */
         .logo-img {
             width: 45px;
             height: 45px;
@@ -75,13 +74,28 @@
             color: var(--accent);
         }
 
+        /* BANNER DE DESTAQUE ATÉ R$ 20 */
         .hero {
             text-align: center;
-            padding: 40px 20px 20px;
+            padding: 35px 20px 15px;
+        }
+
+        .price-tag-banner {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 900;
+            padding: 6px 16px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
 
         .hero h1 {
-            font-size: 32px;
+            font-size: 36px;
+            font-weight: 900;
             margin-bottom: 10px;
         }
 
@@ -165,12 +179,13 @@
             left: 10px;
             background-color: var(--accent);
             color: #fff;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 6px;
             text-transform: uppercase;
             z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         .card:hover {
@@ -211,7 +226,7 @@
         }
 
         .card-title {
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 10px;
             line-height: 1.3;
         }
@@ -219,27 +234,20 @@
         .card-desc {
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-grow: 1;
         }
 
-        .card-price-container {
-            margin-bottom: 15px;
-            background: rgba(255,255,255,0.03);
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        .price-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            display: block;
-        }
-
-        .product-price {
-            font-size: 20px;
-            font-weight: 800;
+        .card-price-tag {
+            font-size: 18px;
+            font-weight: 900;
             color: var(--amazon-yellow);
+            margin-bottom: 15px;
+            background: rgba(255, 153, 0, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            width: fit-content;
         }
 
         .card-btn {
@@ -249,7 +257,7 @@
             padding: 12px;
             text-decoration: none;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             transition: background 0.3s;
             font-size: 14px;
         }
@@ -276,7 +284,7 @@
 
     <header>
         <a href="#" class="logo">
-            <img src="logo.jpeg" alt="O Divulgador" class="logo-img">
+            <img src="logo.jpeg" alt="O Divulgador - Até R$20" class="logo-img">
             O Divulgador
         </a>
         <nav>
@@ -285,404 +293,129 @@
     </header>
 
     <section class="hero">
-        <h1>Vitrine de Ofertas <span>Amazon</span></h1>
-        <p>Produtos selecionados com entrega rápida e compra 100% segura.</p>
+        <span class="price-tag-banner">⚡ TUDO POR ATÉ R$ 20,00 ⚡</span>
+        <h1>Lojão de Achadinhos <span>Amazon</span></h1>
+        <p>Utilidades, brinquedos, itens de cozinha, papelaria e muito mais por no máximo R$ 20,00.</p>
     </section>
 
     <!-- BARRA DE CATEGORIAS -->
     <section class="categories-section">
         <div class="filters">
             <button class="filter-btn active" data-filter="all">🔥 Todos os Destaques</button>
-            <button class="filter-btn" data-filter="tecnologia">📱 Tecnologia</button>
-            <button class="filter-btn" data-filter="casa">🏠 Casa Inteligente</button>
-            <button class="filter-btn" data-filter="cozinha">🍳 Cozinha & Eletro</button>
-            <button class="filter-btn" data-filter="audio">🎧 Áudio</button>
-            <button class="filter-btn" data-filter="livros">📖 Livros</button>
+            <button class="filter-btn" data-filter="cozinha">🍳 Cozinha & Casa</button>
+            <button class="filter-btn" data-filter="livros">📖 Livros & Papelaria</button>
+            <button class="filter-btn" data-filter="utilidades">🛠️ Utilidades</button>
             <button class="filter-btn" data-filter="pets">🐾 Pets</button>
         </div>
 
-        <h2 class="section-title">Produtos em Destaque</h2>
+        <h2 class="section-title">Achados até R$ 20,00</h2>
     </section>
 
     <!-- GRADE DE PRODUTOS -->
     <main class="grid" id="product-grid">
 
-        <!-- ========================= TECNOLOGIA ========================= -->
-
-        <!-- PRODUTO: Hisense Smart TV 4K Hi-QLED 50" Polegadas 50Q6QVV -->
-        <div class="card" data-category="tecnologia" data-featured="true">
-            <span class="badge-destaque">Mais Vendido</span>
+        <!-- PRODUTO: Sanremo Rodo Plástico -->
+        <div class="card" data-category="cozinha utilidades" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Cole a URL copiada da imagem da Amazon aqui -->
-                <img src="https://m.media-amazon.com/images/I/81ua0sYUCPL._AC_SY300_SX300_QL70_ML2_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/31jLjKybymL._AC_SL1000_.jpg" alt="Sanremo Rodo plástico" class="card-img">
             </div>
             <div class="card-content">
-                <span class="card-category">Tecnologia</span>
-                <h3 class="card-title">Hisense Smart TV 4K Hi-QLED 50" Polegadas 50Q6QVV</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                </div>
-                <a href="https://amzn.to/3W4NkgS" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
+                <span class="card-category">Cozinha</span>
+                <h3 class="card-title">Sanremo - Rodo Plástico para Pia de 14cm</h3>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B06XSVxP3" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
 
-        <!-- PRODUTO: Smartwatch, HUAWEI Band 10 -->
-        <div class="card" data-category="tecnologia" data-featured="false">
+        <!-- PRODUTO: Mini triturador -->
+        <div class="card" data-category="cozinha utilidades" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/619yH8oZ2EL._AC_SY300_SX300_QL70_ML2_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/61GMB0Mmu+L._AC_SL1200_.jpg" alt="Processador de alimentos" class="card-img">
             </div>
             <div class="card-content">
-                <h3 class="card-title">Smartwatch, HUAWEI Band 10</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://amzn.to/4rM46xi" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+                <span class="card-category">Cozinha</span>
+                <h3 class="card-title">Processador de Alimentos Manual com Lâminas em Aço Inox 500ml</h3>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B01Ar15w9" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
 
-        <!-- PRODUTO: Amazon Kindle Paperwhite 16 GB (modelo 2024) -->
-        <div class="card" data-category="tecnologia" data-featured="false">
+        <!-- PRODUTO: Panela de silicone -->
+        <div class="card" data-category="cozinha utilidades" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/712JlBgtkJL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/61Mt-PDFEKL._AC_SL1500_.jpg" alt="Panela de silicone" class="card-img">
             </div>
             <div class="card-content">
-                <h3 class="card-title">Amazon Kindle Paperwhite 16 GB (modelo 2024)</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B09RwUVG2" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+                <span class="card-category">Cozinha</span>
+                <h3 class="card-title">Panela de Silicone Quadrada Fritadeira Microondas C/Alça Forma 20x20cm Cesto para Air Fryer</h3>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B04YWyJcu" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
 
-        <!-- PRODUTO: Mini Drone Com Câmara HD -->
-        <div class="card" data-category="tecnologia" data-featured="false">
+        <!-- PRODUTO: Pincel de silicone -->
+        <div class="card" data-category="cozinha utilidades" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/71txNU9ZB0L._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/51A9MydboGL._AC_SL1000_.jpg" alt="Pincel de silicone" class="card-img">
             </div>
             <div class="card-content">
-                <h3 class="card-title">Mini Drone Com Câmara HD</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B03VbEkMH" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+                <span class="card-category">Cozinha</span>
+                <h3 class="card-title">Pincel De Silicone Prime Grill</h3>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B01NjwYlH" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
 
-        <!-- ======================= FIM TECNOLOGIA ======================= -->
-
-
-        <!-- ========================= CASA ========================= -->
-
-        <!-- PRODUTO: Interruptor Inteligente WiFi, Interruptor Smart Sem Fio Doméstico Multifuncional-->
-        <div class="card" data-category="casa" data-featured="true">
+        <!-- PRODUTO: Balança Digital -->
+        <div class="card" data-category="cozinha utilidades" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/41qb6z82irL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/615lDbUTdnL._SL1254_.jpg" alt="Balança Digital" class="card-img">
             </div>
             <div class="card-content">
-                <span class="card-category">Oferta em Destaque</span>
-                <h3 class="card-title">Interruptor Inteligente WiFi, Interruptor Smart Sem Fio Doméstico Multifuncional</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0gebxqBy" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+                <span class="card-category">Cozinha</span>
+                <h3 class="card-title">Balança de Cozinha Digital 10kg Alta Precisão</h3>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B0bVWroXR" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
 
-                <!-- PRODUTO: Lâmpada Inteligente Smart Color 10W Elgin RGB Wifi Compatível com Alexa e Google Home -->
-        <div class="card" data-category="casa" data-featured="false">
+        <!-- PRODUTO: Livro As Sete Leis Espirituais -->
+        <div class="card" data-category="livros" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/61i1yPAlVLL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/91USmbhbQLL._SL1500_.jpg" alt="Livro" class="card-img">
             </div>
             <div class="card-content">
-                <h3 class="card-title">Lâmpada Inteligente Smart Color 10W Elgin RGB Wifi Compatível com Alexa e Google Home</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B00v7xeEq" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Lilin Robô Aspirador e Passa Pano X6 Mapeamento LiDAR 6500Pa 3 em 1 Bivolt  -->
-        <div class="card" data-category="casa" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/618j9fqcOML._AC_SL1005_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Lilin Robô Aspirador e Passa Pano X6 Mapeamento LiDAR 6500Pa 3 em 1 Bivolt</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B077uLQKd" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Lixeira 12 litros grande automática com sensor inteligente de aproximação para abrir e fechar -->
-        <div class="card" data-category="casa" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/61AHIRNXBBL._SL1200_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Lixeira 12 litros grande automática com sensor inteligente de aproximação para abrir e fechar</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0caAQaXB" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-
-
-        <!-- ======================= FIM CASA ======================= -->
-
-
-        <!-- ========================= COZINHA ========================= -->
-
-        <!-- PRODUTO: Balança de Cozinha Digital 10kg Precisão 1g Função Tara, Display LCD, Múltiplas Unidades, Plataforma Antiderrapante, Design Compacto para Alimentos, Dieta, Confeitaria e Receitas Premium  -->
-        <div class="card" data-category="cozinha" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/615lDbUTdnL._SL1254_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Balança de Cozinha Digital 10kg</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0blaCGk8" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Kit 10 Potes Vidro Borossilicato 640ml Marmita Tampa Hermética Resistente  -->
-        <div class="card" data-category="cozinha" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/71iw4Cy1BmL._AC_SL1254_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Kit 10 Potes Vidro Borossilicato 640ml Marmita Tampa Hermética Resistente </h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B009sDVvu" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Chaleira Elétrica 2 Litros Inox Cor Aço 220v -->
-        <div class="card" data-category="cozinha" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/61Xw5OaL7KL._AC_SL1254_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Chaleira Elétrica 2 Litros Inox Cor Aço 220v</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0gWegk7y" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Micro-ondas Philco 20l Branco Pmo23b 220v -->
-        <div class="card" data-category="cozinha" data-featured="true">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/41XTKM4Cg4L._AC_SL1200_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <span class="card-category">Oferta em Destaque</span>
-                <h3 class="card-title">Micro-ondas Philco 20l Branco Pmo23b 220v</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0dRHGFAt" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- ======================= FIM COZINHA ======================= -->
-
-
-        <!-- ========================= AUDIO ========================= -->
-
-        <!-- PRODUTO: PHILIPS, Headphone Bluetooth, TAH2300BK/00, Com Microfone, Até 55 horas de bateria, Design Over-ear, Dobrável, Preto -->
-        <div class="card" data-category="audio" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/51BmQ8K9sML._AC_SL1000_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">PHILIPS, Headphone Bluetooth, TAH2300BK/00, Com Microfone, Até 55 horas de bateria, Design Over-ear, Dobrável, Preto</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0boLjzYT" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Echo Dot (Geração mais recente) | Smart speaker com Alexa, som vibrante e potente, Wi-Fi e Bluetooth -->
-        <div class="card" data-category="audio" data-featured="true">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/61uUYOB2lvL._AC_SL1000_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <span class="card-category">Oferta em Destaque</span>
-                <h3 class="card-title">Echo Dot (Geração mais recente) | Smart speaker com Alexa, som vibrante e potente, Wi-Fi e Bluetooth</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B08kQVFyY" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: MONDIAL Caixa Amplificada Connect Partyplus, Preto, 250W RMS, Bivolt - CM-250 -->
-        <div class="card" data-category="audio" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/71L75l+z+AL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">MONDIAL Caixa Amplificada Connect Partyplus, Preto, 250W RMS, Bivolt - CM-250</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0bwXfAzi" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Alto-falante Bluetooth portátil IPX7 à prova d'água, 60W Bass -->
-        <div class="card" data-category="audio" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/61+pHP685TL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Alto-falante Bluetooth portátil IPX7 à prova d'água, 60W Bass</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B05YeczlP" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- ======================= FIM AUDIO ======================= -->
-
-
-        <!-- ========================= LIVROS ========================= -->
-
-        <!-- PRODUTO: Livro - As sete leis espirituais do sucesso-->
-        <div class="card" data-category="livros" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/91USmbhbQLL._SL1500_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
+                <span class="card-category">Livros</span>
                 <h3 class="card-title">As sete leis espirituais do sucesso</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://amzn.to/4y1dFtA" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B0es9mwbn" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
 
-        <!-- PRODUTO: Verity -->
-        <div class="card" data-category="livros" data-featured="false">
+        <!-- PRODUTO: Lâmpada Smart -->
+        <div class="card" data-category="utilidades" data-featured="true">
+            <span class="badge-destaque">Até R$ 20,00</span>
             <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/91SDZ2eUj+L._SL1500_.jpg" alt="Produto Amazon" class="card-img">
+                <img src="https://m.media-amazon.com/images/I/61i1yPAlVLL._AC_SL1500_.jpg" alt="Lâmpada Inteligente" class="card-img">
             </div>
             <div class="card-content">
-                <h3 class="card-title">Verity</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B06waVI4x" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
+                <span class="card-category">Casa & Utilidades</span>
+                <h3 class="card-title">Lâmpada Inteligente LED RGB Wi-Fi 10W</h3>
+                <div class="card-price-tag">Até R$ 20,00</div>
+                <a href="https://link.amazon/B0fqGZ1tG" target="_blank" rel="nofollow" class="card-btn">Ver na Amazon</a>
             </div>
         </div>
-
-        <!-- PRODUTO: Livro - Hábitos Atômicos: um Método Fácil e Comprovado de Criar Bons Hábitos e se Livrar dos Maus-->
-        <div class="card" data-category="livros" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/81eT2pjx4jL._SL1500_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Hábitos Atômicos: um Método Fácil e Comprovado de Criar Bons Hábitos e se Livrar dos Maus</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://amzn.to/4AOwl2s" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Jogo de amor para dois -->
-        <div class="card" data-category="livros" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/81ipWb06JQL._SL1500_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Jogo de amor para dois </h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0hhbgLt9" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- ======================= FIM LIVROS ======================= -->
-
-        <!-- ========================= PETS ========================= -->
-
-        <!-- PRODUTO: Alimentador Automático Pet, 4L Comedouro para Caes Fácil Comedouro Elevado para Caes, Controle de Aplicativo WiFi - Gravador de Voz -->
-        <div class="card" data-category="pets" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/51ansqiUO5L._AC_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Alimentador Automático Pet, 4L Comedouro para Caes Fácil Comedouro Elevado para Caes, Controle de Aplicativo WiFi - Gravador de Voz</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0fSw2p6X" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: Capa de Proteção Impermeável para Banco Traseiro de Carro - Forro Universal Antiderrapante para Cães e Pets  -->
-        <div class="card" data-category="pets" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/71g1cFUUIEL._AC_SL1200_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Capa de Proteção Impermeável para Banco Traseiro de Carro - Forro Universal Antiderrapante para Cães e Pets</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0bcm2Mrn" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- PRODUTO: CKit Máquina De Tosa Pets Gato Cachorro Tosador Profissional -->
-        <div class="card" data-category="pets" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/61qEmwR5VKL._AC_SL1500_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Kit Máquina De Tosa Pets Gato Cachorro Tosador Profissional</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B05qeZRUt" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- Bravecto® 250mg Antipulgas e Carrapatos para Cães de 4,5 a 10kg – 1 Comprimido Mastigável -->
-        <div class="card" data-category="pets" data-featured="false">
-            <div class="card-img-container">
-                <!-- Substitua pela URL da imagem gerada no SiteStripe ou link direto da imagem -->
-                <img src="https://m.media-amazon.com/images/I/51ngRrc8nmL._AC_SL1080_.jpg" alt="Produto Amazon" class="card-img">
-            </div>
-            <div class="card-content">
-                <h3 class="card-title">Bravecto® 250mg Antipulgas e Carrapatos para Cães de 4,5 a 10kg – 1 Comprimido Mastigável</h3>
-                <p class="card-desc">Confira os detalhes e disponibilidade diretamente na página oficial da Amazon.</p>
-
-                <a href="https://link.amazon/B0f9w7Dnz" target="_blank" rel="nofollow" class="card-btn">Ver Oferta na Amazon</a>
-            </div>
-        </div>
-
-        <!-- ======================= FIM PETS ======================= -->
 
     </main>
 
     <footer>
-        <p>&copy; 2026 O Divulgador. Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas efetuadas.</p>
+        <p>&copy; 2026 O Divulgador — Lojão até R$ 20,00. Como participante do Programa de Associados da Amazon, somos remunerados por compras qualificadas.</p>
     </footer>
 
     <script>
@@ -700,7 +433,6 @@
                         card.classList.add('hide');
                     }
                 } else {
-                    // Verifica se a categoria selecionada está dentro da lista de categorias do card
                     if (categories.includes(filterValue)) {
                         card.classList.remove('hide');
                     } else {
@@ -720,7 +452,6 @@
             });
         });
 
-        // EXECUTA O FILTRO AUTOMATICAMENTE AO CARREGAR A PÁGINA
         filterProducts('all');
     </script>
 
